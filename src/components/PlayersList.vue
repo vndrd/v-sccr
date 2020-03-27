@@ -49,7 +49,7 @@
 
 <script>
 import togglebutton from '@/components/Togle.vue'
-
+//https://www.bennadel.com/blog/3559-animating-elements-in-from-a-mouse-event-location-in-vue-js-2-5-21.htm
 
 export default {
     name: 'Todo',
@@ -144,7 +144,28 @@ html, body {
 @keyframes strikeitem {
 	to { width:calc(100% + 1rem); }
 }
+.todolist-enter{
+    opacity: 0;
+}
+.todolist-enter-to{
+    opacity: 1;
+    transition: all 1s;
+}
+.todolist-enter-active{}
+.todolist-leave{
+    height: 50px;
+}
+.todolist-leave-to{
+    height: 0px !important;
+    transition: all 4s;
+}
+.todolist-leave-active{
+    display:none !important;
+    margin: 0px;
+    padding:0px;
+}
 #todolist {
+    overflow: hidden;
 	margin:4rem ;
     float: left;
 	padding:2rem 3rem 3rem;
