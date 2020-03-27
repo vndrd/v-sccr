@@ -1,19 +1,46 @@
 <template>
   <div id="todolist">
     <h1>{{title}}
-      <span>Club Bolivars</span>
+      <span>Club Bolivar</span>
     </h1>
   <template v-if="todo.length">
     <transition-group name="todolist" tag="ul">
       <tr v-for="item in todoByStatus" v-bind:class="item.done ? 'done' : ''" v-bind:key="item.id">
         <td class="label" style="width: 50px"> {{item.pos}} </td>
         <td class="label" style="width: 150px"> {{item.label}} </td>
+        <td class="label" style="width: 150px">
+            <img :src="require(`@/assets/images/${item.nat}.png`)" width="40px" /> 
+        </td>
         <td class="actions">    
             <button class="btn btn-success" @click="exchangeItem(item)"> 
                 <b-icon :icon="iconAll"></b-icon>
             </button>
-            
-          <button class="btn-picto" type="button" 
+        </td>
+      </tr>
+    </transition-group>
+        <togglebutton 
+            label="Move done items at the end?"
+            name="todosort"
+            v-on:clicked="clickontoogle" />
+        <button class="btn btn-lg btn-warning" @click="btnOrderByPos">por Posición</button>
+        <button class="btn btn-lg btn-info"     @click="btnOrderByAge">por Edad</button>
+  </template>
+    <p v-else class="emptylist">Your todo list is empty.</p>
+    <form name="newform" v-on:submit.prevent="addItem">
+        <label for="newitem">Add to the todo list</label>
+        <input type="text" name="newitem" id="newitem" v-model="newitem">
+        <button type="submit">Add item</button>
+        
+    </form>
+  </div>
+</template>
+
+<script>
+import togglebutton from '@/components/Togle.vue'
+//https://www.bennadel.com/blog/3559-animating-elements-in-from-a-mouse-event-location-in-vue-js-2-5-21.htm
+
+/*
+<button class="btn-picto" type="button" 
                 v-on:click="markAsDoneOrUndone(item)" 
                 v-bind:aria-label="item.done ? 'Undone' : 'Done'" 
                 v-bind:title="item.done ? 'Undone' : 'Done'">
@@ -26,30 +53,7 @@
                 title="Delete">
             <i aria-hidden="true" class="material-icons">delete</i>
           </button>
-        </td>
-      </tr>
-    </transition-group>
-        <togglebutton 
-            label="Move done items at the end?"
-            name="todosort"
-            v-on:clicked="clickontoogle" />
-        <button class="btn btn-lg btn-warning" @click="btnOrderByPos">por Posición</button>
-        <button class="btn btn-lg btn-info" @click="btnOrderByAge">por Edad</button>
-  </template>
-  <p v-else class="emptylist">Your todo list is empty.</p>
-
-  <form name="newform" v-on:submit.prevent="addItem">
-    <label for="newitem">Add to the todo list</label>
-    <input type="text" name="newitem" id="newitem" v-model="newitem">
-    <button type="submit">Add item</button>
-    
-  </form>
-  </div>
-</template>
-
-<script>
-import togglebutton from '@/components/Togle.vue'
-//https://www.bennadel.com/blog/3559-animating-elements-in-from-a-mouse-event-location-in-vue-js-2-5-21.htm
+ */
 
 export default {
     name: 'Todo',
@@ -120,7 +124,7 @@ export default {
         var notDoneArray = this.todo.filter(function(item) { return !item.done; });
         
         sortedArray = [...notDoneArray, ...doneArray];
-        return sortedArray;
+            return sortedArray;
         }
     },
     components: {
@@ -144,6 +148,7 @@ html, body {
 @keyframes strikeitem {
 	to { width:calc(100% + 1rem); }
 }
+/*          enter-leave transition */
 .todolist-enter{
     opacity: 0;
 }
@@ -164,6 +169,7 @@ html, body {
     margin: 0px;
     padding:0px;
 }
+/*          enter leave transition END */
 #todolist {
     overflow: hidden;
 	margin:4rem ;
@@ -175,10 +181,10 @@ html, body {
 	box-shadow:-20px -20px 0px 0px rgba(100,100,100,.1);
     h1 {
         /*text-align:center;*/
-        font-weight:normal;
-        font-size:2.6rem;
-        letter-spacing:0.05em;
-        border-bottom:1px solid rgba(255,255,255,.3); 
+        font-weight: normal;
+        font-size: 2.6rem;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid rgba(255,255,255,.3); 
     }
     h1 span {
         display:block;
@@ -186,6 +192,10 @@ html, body {
         margin-bottom:0.7rem;
         margin-left:3px;
         margin-top:0.2rem;   
+    }
+    img{
+        opacity: 0.7;
+        box-shadow: 10px 10px #444 ;
     }
     .emptylist {
         margin-top:2.6rem;

@@ -5,7 +5,7 @@
         <span class="tooglebutton-box"></span>
       </label>
       <input v-bind:id="name" type="checkbox" v-bind:name="name" v-model="isactive" v-on:change="onToogle">
-      </div>    
+    </div>    
 </template>
 <script>
 export default {

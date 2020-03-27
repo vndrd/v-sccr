@@ -24,21 +24,21 @@ export default {
   data: function(){
     return {
       plantilla: [
-        { id:1, label: "G. Viscarra", pos: "POR", posnum: 1, age: 27, done: false },
-        { id:4, label: "M. Riquelme", pos: "ATA", posnum: 4, age: 32, done: false },
-        { id:2, label: "A. Jusino", pos: "DEF", posnum: 2, age: 26, done: false },
-        { id:3, label: "C. Machado", pos: "MED", posnum: 3, age: 30, done: false },              
-        { id:7, label: "V. Ábrego", pos: "ATA", posnum: 4, age: 22, done: false },
-        { id:5, label: "R. Domínguez", pos: "DEF", posnum: 2, age: 22, done: false },
-        { id:6, label: "J. Rojas", pos: "POR", posnum: 1, age: 24, done: false },
+        { id:1, label: "G. Viscarra", pos: "POR", posnum: 1, age: 27, done: false, nat: 'BOL' },
+        { id:4, label: "M. Riquelme", pos: "ATA", posnum: 4, age: 32, done: false, nat: 'ARG' },
+        { id:2, label: "A. Jusino", pos: "DEF", posnum: 2, age: 26, done: false, nat: 'BOL' },
+        { id:3, label: "C. Machado", pos: "MED", posnum: 3, age: 30, done: false, nat: 'BOL' },              
+        { id:7, label: "V. Ábrego", pos: "ATA", posnum: 4, age: 22, done: false, nat: 'BOL' },
+        { id:5, label: "R. Domínguez", pos: "DEF", posnum: 2, age: 22, done: false, nat: 'SAL' },
+        { id:6, label: "J. Rojas", pos: "POR", posnum: 1, age: 24, done: false, nat: 'BOL' },
       ],
       plantel: [   
-        { id:8, label: "V. Castellón", pos: "ATA", posnum: 4, age: 29, done: false },
-        { id:9, label: "L. Gutiérrez", pos: "DEF", posnum: 2, age: 33, done: false },
-        { id:10, label: "P. Azogue", pos: "MED", posnum: 3, age: 25, done: false },              
-        { id:11, label: "J. Pereyra", pos: "ATA", posnum: 4, age: 30, done: false },
-        { id:12, label: "C. Paredes", pos: "DEF", posnum: 2, age: 26, done: false },
-        { id:13, label: "W. Rojas", pos: "POR", posnum: 1, age: 24, done: false },
+        { id:8, label: "V. Castellón", pos: "ATA", posnum: 4, age: 29, done: false, nat: 'BOL' },
+        { id:9, label: "L. Gutiérrez", pos: "DEF", posnum: 2, age: 33, done: false, nat: 'BOL' },
+        { id:10, label: "P. Azogue", pos: "MED", posnum: 3, age: 25, done: false, nat: 'BOL' },              
+        { id:11, label: "J. Pereyra", pos: "ATA", posnum: 4, age: 30, done: false, nat: 'ARG' },
+        { id:12, label: "C. Paredes", pos: "DEF", posnum: 2, age: 26, done: false, nat: 'PAR' },
+        { id:13, label: "W. Rojas", pos: "POR", posnum: 1, age: 24, done: false, nat: 'BOL' },
       ]
     }
   },
