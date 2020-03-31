@@ -1,6 +1,5 @@
 <template>
-  <div class="home">    
-    
+  <div class="home">        
     <Plist :todo="plantel" title="Plantel" direction="right" />
     <Plist :todo="plantilla" title="Plantilla" direction="left" />
   </div>
@@ -31,13 +30,14 @@ export default {
         { id:7, label: "V. Ábrego", pos: "ATA", posnum: 4, age: 22, done: false, nat: 'BOL' },
         { id:5, label: "R. Domínguez", pos: "DEF", posnum: 2, age: 22, done: false, nat: 'SAL' },
         { id:6, label: "J. Rojas", pos: "POR", posnum: 1, age: 24, done: false, nat: 'BOL' },
-      ],
-      plantel: [   
         { id:8, label: "V. Castellón", pos: "ATA", posnum: 4, age: 29, done: false, nat: 'BOL' },
         { id:9, label: "L. Gutiérrez", pos: "DEF", posnum: 2, age: 33, done: false, nat: 'BOL' },
         { id:10, label: "P. Azogue", pos: "MED", posnum: 3, age: 25, done: false, nat: 'BOL' },              
         { id:11, label: "J. Pereyra", pos: "ATA", posnum: 4, age: 30, done: false, nat: 'ARG' },
         { id:12, label: "C. Paredes", pos: "DEF", posnum: 2, age: 26, done: false, nat: 'PAR' },
+      ],
+      plantel: [   
+        
         { id:13, label: "W. Rojas", pos: "POR", posnum: 1, age: 24, done: false, nat: 'BOL' },
       ]
     }

@@ -1,12 +1,12 @@
 <template>
   <div id="todolist">
     <h1>{{title}}
-      <span>Club Bolivar</span>
+        <span>Club Bolivar</span>
     </h1>
   <template v-if="todo.length">
     <transition-group name="todolist" tag="ul">
-      <tr v-for="item in todoByStatus" v-bind:class="item.done ? 'done' : ''" v-bind:key="item.id">
-        <td class="label" style="width: 50px"> {{item.pos}} </td>
+      <tr v-for="item in todoByStatus" :class="clasePos(item.posnum)" v-bind:key="item.id" >
+        <td class="label " style="width: 50px"> {{item.pos}} </td>
         <td class="label" style="width: 150px"> {{item.label}} </td>
         <td class="label" style="width: 150px">
             <img :src="require(`@/assets/images/${item.nat}.png`)" width="40px" /> 
@@ -107,7 +107,11 @@ export default {
             }else{
                 this.$parent.toPlantelList(item)
             }
-        }
+        },
+        clasePos: function(pos){
+            console.log("asdas");
+            return 'pos'+pos
+        },
     },
     computed: {
         iconAll: function(){
@@ -138,6 +142,18 @@ export default {
 	margin:0;
 	padding:0;
 	box-sizing:border-box;
+}
+.pos1 {
+    border-left: rgba(219, 164, 26, 1.0) 10px solid;
+}
+.pos2 {
+    border-left: rgba(100, 219, 26, 1.0) 10px solid;
+}
+.pos3 {
+    border-left: rgba(26, 158, 219, 1.0) 10px solid;
+}
+.pos4 {
+    border-left: rgba(219, 61, 26, 1.0) 10px solid;
 }
 html, body {
 	background:#17f1f1;
